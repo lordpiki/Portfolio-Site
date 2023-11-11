@@ -11,44 +11,4 @@ body {
     padding: 20px;
   }
   
-  .header {
-    text-align: center;
-    margin-bottom: 40px;
-    color: #cbcbcb;
-  }
-  
-  .projects {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .project-card {
-    width: 48%;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #262626;
-    border-radius: 10px;
-  }
-  
-  .project-card h3 {
-    color: #AB2EFF;
-  }
-  
-  .contact {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #262626;
-    border-radius: 10px;
-  }
-  
-  .contact a {
-    color: #AB2EFF;
-    text-decoration: none;
-  }
-  
-  .contact a:hover {
-    text-decoration: underline;
-  }
   

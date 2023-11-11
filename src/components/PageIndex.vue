@@ -6,21 +6,14 @@
         <p>Welcome to my portfolio</p>
       </div>
 
-      <!-- Projects Showcase -->
-      <div class="projects">
-        <div v-for="project in projects" :key="project.id" class="project-card">
-          <h3>{{ project.name }}</h3>
-          <p>{{ project.description }}</p>
-          <!-- Add more project details as needed -->
-        </div>
+      <div class="navigation-bar">
+        <button @click="scrollToSection('welcome')">Welcome</button>
+        <button @click="scrollToSection('projects')">Projects</button>
+        <button @click="scrollToSection('contact')">Contact</button>
       </div>
 
-      <!-- Contact Section -->
-      <div class="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/your-linkedin-profile/">LinkedIn Profile</a></p>
-      </div>
+
+      
     </div>
   </div>
 </template>
