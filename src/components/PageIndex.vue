@@ -28,7 +28,8 @@
       <div v-if="currentSection === 'projects'" id="projects">
         <!-- Projects Showcase -->
         <div class="projects">
-          <div v-for="project in projects" :key="project.id" class="project-card">
+          <div v-for="project in projects" :key="project.id" class="project-card" @click="goToProject(project.id)">
+            <img :src="require(`../assets/${project.image}`)" alt="Project Image">
             <h3>{{ project.name }}</h3>
             <p>{{ project.description }}</p>
             <!-- Add more project details as needed -->
@@ -51,8 +52,8 @@ export default {
     return {
       currentSection: 'welcome',
       projects: [
-        { id: 1, name: 'Project 1', description: 'Description 1' },
-        { id: 2, name: 'Project 2', description: 'Description 2' },
+        { id: 1, name: 'Maze Generator', description: 'Automatic maze generator by size & maze solver', image: "maze-generator.png", link: 'https://lordpiki.github.io/maze_generator'},
+        // { id: 2, name: 'Project 2', description: 'Description 2', image: "maze-generator.png"},
         // Add more projects
       ],
     };
@@ -60,6 +61,14 @@ export default {
   methods: {
     showSection(section) {
       this.currentSection = section;
+    },
+    goToProject(projectId) {
+      const project = this.projects.find(proj => proj.id === projectId);
+      if (project && project.link) {
+        window.location.href = project.link;
+      } else {
+        console.error(`Project with ID ${projectId} does not have a valid link.`);
+      }
     },
   },
 };
