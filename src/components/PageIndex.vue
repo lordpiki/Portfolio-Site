@@ -1,4 +1,5 @@
 <template>
+  
   <div>
     <div class="container">
       <div class="header">
@@ -17,6 +18,8 @@
         <div class="button-container">
           <button :class="{ 'selected': currentSection === 'contact' }" @click="showSection('contact')">Contact</button>
         </div>
+
+
       </div>
 
       <!-- Content Sections -->
@@ -28,10 +31,18 @@
       <div v-if="currentSection === 'projects'" id="projects">
         <!-- Projects Showcase -->
         <div class="projects">
-          <div v-for="project in projects" :key="project.id" class="project-card" @click="goToProject(project.id)">
-            <img :src="require(`../assets/${project.image}`)" alt="Project Image">
+          <div v-for="project in projects" :key="project.id" class="project-card" >
+            <img :src="require(`../assets/${project.image}`)" alt="Project Image" @click="goToProject(project.id)">
             <h3>{{ project.name }}</h3>
             <p>{{ project.description }}</p>
+            <div class="repos">
+              <div class="project-repo" v-if="project.Github" @click="goToRepo(project.id)">
+                <Github />
+              </div>
+              <div class="project-repo" v-if="project.Gitlab" @click="goToRepo(project.id)">
+                <Gitlab />
+              </div>
+            </div>
             <!-- Add more project details as needed -->
           </div>
         </div>
@@ -47,29 +58,50 @@
 </template>
 
 <script>
+import axios from 'axios';
+
+import { Github, Gitlab } from 'lucide-vue-next';
+
 export default {
+  components: {
+    Github,
+    Gitlab,
+  },
   data() {
     return {
       currentSection: 'welcome',
-      projects: [
-        { id: 1, name: 'Maze Generator', description: 'Automatic maze generator by size & maze solver', image: "maze-generator.png", link: 'https://lordpiki.github.io/maze_generator'},
-        // { id: 2, name: 'Project 2', description: 'Description 2', image: "maze-generator.png"},
-        // Add more projects
-      ],
+      projects: [],
     };
   },
   methods: {
+    async loadProjects() {
+      try {
+        const response = await axios.get('projects.json'); // Adjust the path accordingly
+        this.projects = response.data;
+      } catch (error) {
+        console.error('Error loading projects:', error);
+      }
+    },
     showSection(section) {
+      this.loadProjects();
       this.currentSection = section;
     },
     goToProject(projectId) {
       const project = this.projects.find(proj => proj.id === projectId);
       if (project && project.link) {
-        window.location.href = project.link;
+        window.open(project.link, '_blank');
       } else {
         console.error(`Project with ID ${projectId} does not have a valid link.`);
       }
     },
+    goToRepo(projectId) {
+      const project = this.projects.find(proj => proj.id === projectId);
+      if (project && project.repo_link) {
+        window.open(project.repo_link, '_blank');
+      } else {
+        console.error(`Project with ID ${projectId} does not have a valid link.`);
+      }
+    }
   },
 };
 </script>

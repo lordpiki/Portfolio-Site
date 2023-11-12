@@ -1,0 +1,22 @@
+
+[
+    {
+        "id": 1,
+        "name": "Maze Generator",
+        "description": "Automatic maze generator by size & maze solver",
+        "image": "maze-generator.png",
+        "link": "https://lordpiki.github.io/maze_generator",
+        "repo_link": "https://github.com/lordpiki/maze_generator",
+        "Github": true
+    },
+    {
+        "id": 2,
+        "name": "Maze Generator",
+        "description": "Automatic maze generator by size & maze solver",
+        "image": "maze-generator.png",
+        "link": "https://lordpiki.github.io/maze_generator",
+        "repo_link": "https://github.com/lordpiki/maze_generator",
+        "Github": true
+    }
+    
+]

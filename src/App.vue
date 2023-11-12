@@ -1,16 +1,17 @@
 <template>
-  <PageIndex/>
+  <PageIndex />
+
 </template>
 
 <script>
-import PageIndex from './components/PageIndex.vue'
+import PageIndex from './components/PageIndex.vue';
 
 export default {
   name: 'App',
   components: {
-    PageIndex
-  }
-}
+    PageIndex,
+  },
+};
 </script>
 
 <style>
