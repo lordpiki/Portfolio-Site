@@ -1,5 +1,4 @@
 <template>
-  
   <div>
     <div class="container">
       <div class="header">
@@ -11,12 +10,14 @@
       <div class="navigation-bar">
         <div class="button-container">
           <button :class="{ 'selected': currentSection === 'welcome' }" @click="showSection('welcome')">Welcome</button>
-        </div >
+        </div>
         <div class="button-container">
-          <button :class="{ 'selected': currentSection === 'projects' }" @click="showSection('projects')">Projects</button>
+          <button :class="{ 'selected': currentSection === 'projects' }"
+            @click="showSection('projects')">Projects</button>
         </div>
         <div class="button-container">
           <button :class="{ 'selected': currentSection === 'contact' }" @click="showSection('contact')">Contact</button>
+
         </div>
 
 
@@ -31,7 +32,7 @@
       <div v-if="currentSection === 'projects'" id="projects">
         <!-- Projects Showcase -->
         <div class="projects">
-          <div v-for="project in projects" :key="project.id" class="project-card" >
+          <div v-for="project in projects" :key="project.id" class="project-card">
             <img :src="require(`../assets/${project.image}`)" alt="Project Image" @click="goToProject(project.id)">
             <h3>{{ project.name }}</h3>
             <p>{{ project.description }}</p>
@@ -50,8 +51,8 @@
 
       <div v-if="currentSection === 'contact'" id="contact" class="contact">
         <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/your-linkedin-profile/">LinkedIn Profile</a></p>
+        <p>Email: <a href="mailto:miki.dovlekaev2510@gmail.com">miki.dovlekaev2510@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/miki-dovlekaev-a8766928a/">LinkedIn Profile</a></p>
       </div>
     </div>
   </div>

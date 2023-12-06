@@ -62,13 +62,14 @@ body {
   .projects {
     align-items: center;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    /* flex-direction: wra; */
 
   }
   
   .project-card {
     width: 45%;
-    margin-bottom: 20px;
+    margin: 20px;
     padding: 20px;
     border: 2px solid #712ba1;
     border-radius: 15px;

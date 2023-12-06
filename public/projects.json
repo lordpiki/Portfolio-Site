@@ -11,11 +11,11 @@
     },
     {
         "id": 2,
-        "name": "Maze Generator",
-        "description": "Automatic maze generator by size & maze solver",
-        "image": "maze-generator.png",
-        "link": "https://lordpiki.github.io/maze_generator",
-        "repo_link": "https://github.com/lordpiki/maze_generator",
+        "name": "Discord uploader",
+        "description": "Automatic bot to store files of any size via discord",
+        "image": "Discord_uploader.png",
+        "link": "https://github.com/lordpiki/discord-uploader",
+        "repo_link": "https://github.com/lordpiki/discord-uploader",
         "Github": true
     }
     
